@@ -1,0 +1,9 @@
+*~
+*.swp
+*.bak
+config.php
+.htaccess
+php.ini
+php_errors
+*.pdf
+mpdf

@@ -1,0 +1,21 @@
+<?php
+define('DB_TYPE',    'MongoDB');
+
+define('DB_HOST',    'mongodb://localhost:27017');
+
+define('DB_USER',    'outliner');
+
+define('DB_PASS',    'outliner');
+
+define('DB_NAME',    'outliner');
+
+define('TITLE',      'Outliner');
+
+define('VERSION',    'Outliner v0.1');
+
+define('BASE_DIR',   dirname(__FILE__));
+
+define('BASE_URL',   'http://127.0.0.1:8081/');
+
+define('SECURE',     false); // change to true if your site has tls
+?>

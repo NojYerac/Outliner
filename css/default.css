@@ -1,0 +1,297 @@
+/* tags */
+
+body {
+    background-color: #DDD;
+    color: white;
+    font-family: sans-serif;
+}
+
+h1 {
+    font-size: 4em;
+    color: #EEE;
+    text-align: center;
+	margin-top: 0.5em;
+}
+
+h2 {
+    font-size: 3em;
+    color: #777;
+	margin-top: 0.5em;
+}
+
+h4 {
+    font-size: 2em;
+	margin-top: 0.5em;
+}
+
+p {
+    font-size: 1em;
+}
+
+code {
+    color: black;
+    font-family: monospace;
+    background-color: white;
+}
+
+form, option, select, label {
+    font-size: 1em;
+    color: black;
+}
+
+input, select, textarea {
+    margin: 5px;
+	padding: 4px;
+	background-color: #EEE;
+	border-radius: 10px;
+	border: 2px solid #333;
+}
+
+button, input[type="submit"] {
+	background-color: #EEE;
+	color: #333;
+	font-size: 1em;
+	text-align: center;
+	border-radius: 10px;
+	padding: 2px;
+	border: 2px solid #333;
+	margin-left: 5px;
+	margin-bottom: 2px;
+}
+
+button:disabled {
+	background-color: #DDD;
+	color: #555;
+	border: 2px solid #555;
+}
+
+ol {
+    text-align: left;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse
+}
+
+
+/*
+th {
+    text-align:right;
+}
+*/
+
+/* classes */
+
+.hidden {display: none;}
+
+.visible {display: block;}
+
+.tooltip {
+    padding: 8px;
+    /*margin: 20px;*/
+    border-radius: 10px;
+    position:absolute;
+    background-color: #555;
+    color: #FF9;
+    font-size: 1em;
+    text-align: center;
+}
+/*
+h4.tooltip {
+    font-size: 14em;
+    text-align: center;
+}
+
+p.tooltip {
+    font-size: 10em;
+    text-align: left;
+}*/
+
+div.feature-box {
+	border: #333 2px solid;
+    margin-left: 80px;
+	margin-right: 80px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+table.times {
+    width:98%;
+    margin: 1%;
+    text-align: center;
+    }
+
+table.times th {
+    background-color: #555;
+    border: 1px solid #555;
+    color: #EEE;
+    padding: 3px;
+    vertical-align: top;
+    }
+
+table.times tr:nth-child(2n) {
+    background-color: #EEE;
+    color: #555;
+    }
+
+table.times tr:nth-child(2n+1) {
+    background-color: #CCC;
+    color: #222;
+    }
+
+table.payments {
+    width:98%;
+    margin: 1%;
+    text-align: center;
+    }
+
+table.payments th {
+    background-color: #555;
+    border: 1px solid #555;
+    color: #EEE;
+    padding: 3px;
+    vertical-align: top;
+    }
+
+table.payments tr:nth-child(2n) {
+    background-color: #EEE;
+    color: #555;
+    }
+
+table.payments tr:nth-child(2n+1) {
+    background-color: #CCC;
+    color: #222;
+    }
+
+
+.feature-box {
+    background-color: #EEE;
+    color: #333;
+    font-size: 1em;
+    text-align: center;
+}
+
+.status-box {
+    background-color: #EEE;
+    color: #333;
+    font-size: 1em;
+    text-align: center;
+}
+
+div.status-box {
+	width: 30%;
+    padding: 30px;
+    border-radius: 10px;
+	border: 2px solid #333;
+}
+
+.center {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+  margin: auto;
+}
+
+button.selected {
+	background-color: #000;
+	color: #FFF;
+	border: 2px solid #FFF;
+}
+
+.edit_invoice_div {
+	margin-left: 30%;
+	margin-right: 30%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border-radius: 10px;
+	border: 2px solid #333;
+	padding: 10px;
+}
+
+.edit_invoice_div button {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.invoice_li {
+	list-style-type: none;
+}
+
+.header {
+	background-color: #333;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 98%;
+	padding-left: 1%;
+	padding-right: 1%;
+}
+
+.header_placeholder {
+	width: 100%;
+	height: 200px;
+}
+
+.input_container * {
+	vertical-align: middle;
+}
+
+a.invoice_link.unpaid:link  {
+	color: #03C;
+	text-decoration: none;
+}
+
+a.invoice_link.unpaid:visited {
+	color: #03C;
+	text-decoration: none;
+}
+
+a.invoice_link.unpaid:hover {
+	color: #03C;
+	text-decoration: underline;
+}
+
+.invoice_li:hover {
+	background-color: #DDD;
+}
+
+li.paid {
+	text-decoration: line-through;
+}
+
+li.overdue {
+	color: #F30;
+}
+
+.clone_button .delete_button {
+	margin-left: 10px;
+	margin-bottom: 2px;
+}
+
+li.outline_link_li>div.button_div {
+	display: inline-block;
+}
+
+span.node_note {
+		margin-right:10px;
+		width:20%;
+		background-color:#fff;
+}
+
+/* IDs */
+
+#timer_submit {
+	border: solid 4px #333;
+	background-color: #555;
+    color: #EEE;
+    font-size: 2.5em;
+    margin: 10px;
+    border-radius: 15px;
+    }
+
+
