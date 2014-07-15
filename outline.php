@@ -4,9 +4,15 @@ require_once('db.php');
 require_once('node.php');
 
 if (isset($_REQUEST['outline_id'])) {
+	if (!is_string($_REQUEST['outline_id']) ||
+		!preg_match('/[0-9a-f]{24}/', $_REQUEST['outline_id'])
+	) { throw(new Exception('Bad outline id value')); }
 	$outline_id = htmlentities($_REQUEST['outline_id']);
 
-	$outline = get_one_document('outlines', array('_id' => new MongoId($outline_id)));
+	$outline = get_one_document(
+		'outlines',
+		array('_id' => new MongoId($outline_id))
+	);
 	$title = $outline['title'];
 	$root = array(
 		'tag' => 'ul',
@@ -92,6 +98,46 @@ $head = array(
 	)
 );
 
+$buttons = array();
+$controls = array(
+	'add_sib',
+	'add_child',
+	'delete',
+	'clone',
+	'move_up',
+	'move_down',
+	'promote',
+	'demote',
+	'cancle'
+);
+
+foreach ($controls as $control) {
+	$buttons[] = array(
+		'tag' => 'button',
+		'class' => $control . '_button',
+		'id' => $control . '_button',
+		'text' => $control
+	);
+}
+
+$control_buttons = array(
+	'tag' => 'div',
+	'style' => 'float:right;',
+	'class' => 'control_buttons',
+	'id' => 'control_buttons_div',
+	'child_nodes' => $buttons /*array(
+		$add_sibling_button,
+		$add_child_button,
+		$delete_node_button,
+		$clone_node_button,
+		$move_up_button,
+		$move_down_button,
+		$promote_button,
+		$demote_button,
+		$cancle_button
+	)*/
+);
+
 $header = array(
 	'tag' => 'div',
 	'id' => 'header_div',
@@ -104,7 +150,8 @@ $header = array(
 				array(
 					'tag' => 'h1',
 					'text' => $title
-				)
+				),
+				$control_buttons
 			)
 		)
 	)

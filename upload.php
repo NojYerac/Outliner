@@ -3,25 +3,61 @@ require_once('config.php');
 require_once('db.php');
 require_once('node.php');
 
+
 if (isset($_FILES)) {
-	foreach($_FILES as $file) {
-		var_dump($file);
-		if ($file['name'][0] === 'content.xml') {
-			$uri = 'compress.zlib://' . $file['tmp_name'][0];
-			$xml = new XMLReader();
-			$xml->open($uri);
-			while ( $xml->read() ) {
-				echo($xml->name . "<br/>");
-			}
-		}
+	$file = $_FILES['file'];
+	var_dump($file);
+	if ($file['name'][0] === 'contents.xml') {
+		move_uploaded_file($file['tmp_name'][0], 'upload/' . $file['name'][0]);
 	}
 }
+		/*$uri = 'compress.zlib://' . $file['tmp_name'][0];
+		$xml = new XMLReader();
+		$xml->open($uri);
+		while (true) {
+			$node = $xml->expand();
+			echo "<p><b>" . get_class($node) . "</b><br/>";
+			echo $node->nodeName . "<br/>";
+			if ($node->nodeName === '#text') {
+				//var_dump($node);
+				echo $node->wholeText . "<br/>";
+			}
+			echo("</p>");
+			if (!$xml->read()) {break;}
+		}*/
+
+		/*while ($xml->read()) {
+			switch ($xml->name) {
+				case 'style':
+					$style = extract_style_values($xml->expand());
+					while($xml->read() && $xml->name !== 'style');
+					var_dump($style);
+					break;
+				case 'lit':
+					break;
+				default:
+					break;
+			}*/ /*
+		//$node = $xml->expand();
+		//$dom = new DOMDocument($node);
+			echo '<pre>' . htmlentities($xml->readOuterXML()) . '</pre>';
+		}
+	}
+
+}*/
+
+function extract_style_values(object $dom) {
+	$style = array();
+
+
+}
+
 
 
 $file_input_label = array(
 	'tag' => 'label',
 	'text' => 'File: ',
-	'for' => 'file[]'
+	'for' => 'file'
 );
 
 $file_input = array(

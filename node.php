@@ -19,7 +19,7 @@ function array2tag(array $array,string $tag=Null) {
 		unset($array['tag']);
 	}
 	if ($tag != Null && is_string($tag)) {
-		$tag = htmlentities(preg_replace('/[\/\s\\\]+/', '', $tag));
+		$tag = htmlentities(preg_replace('/[\/\s\\\]+/', '', $tag)); //]/'
 	} else {
 		throw(new Exception("Ambiguous tag"));
 	}
@@ -98,23 +98,23 @@ function node2array($node_id) {
 			)
 		)
 	);
+	/*$child_nodes[] = array(
+		'tag' => 'li',
+		'id' => 'add_child_node_' . $node_id,
+		'class' => 'add_child_node'
+	);*/
 	if (isset($node['nodes']) && count($node['nodes']) > 0) {
 		foreach ($node['nodes'] as $sub_node_id) {
 			$child_nodes[] = node2array($sub_node_id);
 		}
+		$array['child_nodes'][] = array(
+			'tag' => 'ul',
+			'id' => 'node_ul_' . $node_id,
+			'class' => 'node_ul',
+			'child_nodes' => $child_nodes
+		);
 	}
-	$child_nodes[] = array(
-		'tag' => 'li',
-		'id' => 'add_child_node_' . $node_id,
-		'class' => 'add_child_node'
-	);
-	$array['child_nodes'][] = array(
-		'tag' => 'ul',
-		'id' => 'node_ul_' . $node_id,
-		'class' => 'node_ul',
-		'child_nodes' => $child_nodes
-	);
-	
+
 	return $array;
 }
 
